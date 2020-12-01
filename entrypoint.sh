@@ -6,6 +6,7 @@ DOKKU_USER=$2
 DOKKU_HOST=$3
 DOKKU_APP_NAME=$4
 DOKKU_REMOTE_BRANCH=$5
+DOKKU_PORT=$6
 
 echo -n "Deploying application to Dokku host\n"
 
@@ -18,7 +19,7 @@ ssh-keyscan $DOKKU_HOST >> ~/.ssh/known_hosts
 chown 400 ~/.ssh/id_rsa
 
 # Setup the git environment
-REMOTE=$DOKKU_USER@$DOKKU_HOST:$DOKKU_APP_NAME
+REMOTE=$DOKKU_USER@$DOKKU_HOST:$DOKKU_PORT:$DOKKU_APP_NAME
 cd $GITHUB_WORKSPACE
 git remote add dokku $REMOTE
 
