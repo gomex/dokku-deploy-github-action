@@ -22,7 +22,7 @@ git remote add deploy "$git_repo"
 git remote -v
 
 # Prepare to push to Dokku git repository
-REMOTE_REF="$GITHUB_SHA:refs/heads/$DOKKU_REMOTE_BRANCH"
+REMOTE_REF="$GITHUB_SHA:refs/heads/$DOKKU_REMOTE_BRANCH:master"
 
 GIT_COMMAND="git push deploy $REMOTE_REF $GIT_PUSH_FLAGS"
 echo "GIT_COMMAND=$GIT_COMMAND"
