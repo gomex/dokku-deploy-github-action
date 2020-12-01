@@ -20,6 +20,7 @@ chown 400 ~/.ssh/id_rsa
 
 # Setup the git environment
 REMOTE=$DOKKU_USER@$DOKKU_HOST:$DOKKU_PORT:$DOKKU_APP_NAME
+echo $REMOTE
 cd $GITHUB_WORKSPACE
 git remote add dokku $REMOTE
 
