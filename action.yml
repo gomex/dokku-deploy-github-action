@@ -15,6 +15,10 @@ inputs:
   dokku-host:
     description: "The dokku host to ssh into"
     required: true
+  dokku-port:
+    description: "The dokku port to ssh into"
+    required: false
+    default: "22"
   app-name:
     description: "The dokku app name"
     required: true
@@ -36,3 +40,4 @@ runs:
     - ${{ inputs.app-name }}
     - ${{ inputs.remote-branch }}
     - ${{ inputs.git-push-flags }}
+    - ${{ inputs.dokku-port}}

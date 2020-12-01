@@ -6,6 +6,7 @@ DOKKU_HOST=$3
 DOKKU_APP_NAME=$4
 DOKKU_REMOTE_BRANCH=$5
 GIT_PUSH_FLAGS=$6
+DOKKU_PORT=$7
 
 # Setup the SSH environment
 mkdir -p ~/.ssh
@@ -14,7 +15,7 @@ ssh-add - <<< "$SSH_PRIVATE_KEY"
 ssh-keyscan $DOKKU_HOST >> ~/.ssh/known_hosts
 
 # Setup the git environment
-git_repo="$DOKKU_USER@$DOKKU_HOST:$DOKKU_APP_NAME"
+git_repo="$DOKKU_USER@$DOKKU_HOST:$DOKKU_PORT:$DOKKU_APP_NAME"
 cd "$GITHUB_WORKSPACE"
 git remote add deploy "$git_repo"
 
